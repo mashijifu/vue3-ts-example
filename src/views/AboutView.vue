@@ -83,8 +83,8 @@ memberListInit.set(4, {
 const memberList = ref(memberListInit);
 
 const rand = ref(Math.round(Math.random() * 10));
-const onUpdateRand = (): void => {
-  rand.value = Math.round(Math.random() * 10);
+const onUpdateRand = (max: number): void => {
+  rand.value = Math.round(Math.random() * max);
 };
 
 const totalPoints = computed((): number => {

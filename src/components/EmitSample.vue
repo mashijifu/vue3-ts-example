@@ -19,11 +19,11 @@ const handleUpdate = (e: Event) => {
 </template>
 <script setup lang="ts">
 interface Emits {
-  (event: "updateRand"): void;
+  (event: "updateRand", max: number): void;
 }
 const emit = defineEmits<Emits>();
 
 const handleUpdate = () => {
-  emit("updateRand");
+  emit("updateRand", Math.round(Math.random() * 100));
 };
 </script>
