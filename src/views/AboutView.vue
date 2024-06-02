@@ -1,5 +1,6 @@
 <template>
   <div class="post-code">
+    <TeleportSample />
     <section>
       <p>{{ rand }}</p>
       <EmitSample v-on:updateRand="onUpdateRand" />
@@ -45,6 +46,7 @@ import { ref, computed } from "vue";
 import PropsSample from "@/components/PropsSample.vue";
 import EmitSample from "@/components/EmitSample.vue";
 import OneMember from "@/components/OneMember.vue";
+import TeleportSample from "@/components/TeleportSample.vue";
 
 const postCode = ref("");
 const version = ref("?");
