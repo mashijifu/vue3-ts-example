@@ -1,5 +1,12 @@
 <template>
   <div class="post-code">
+    <section>
+      <ModalSample
+        v-bind:isVisible="modalVisible"
+        v-on:open="openModal"
+        v-on:close="closeModal"
+      />
+    </section>
     <TeleportSample />
     <section>
       <p>{{ rand }}</p>
@@ -85,6 +92,19 @@ memberListInit.set(4, {
 const memberList = ref(memberListInit);
 
 const rand = ref(Math.round(Math.random() * 10));
+
+import ModalSample from "@/components/ModalSample.vue";
+
+const modalVisible = ref(false);
+
+const openModal = (): void => {
+  modalVisible.value = true;
+};
+
+const closeModal = (): void => {
+  modalVisible.value = false;
+};
+
 const onUpdateRand = (max: number): void => {
   rand.value = Math.round(Math.random() * max);
 };
