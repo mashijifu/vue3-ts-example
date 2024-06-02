@@ -1,6 +1,10 @@
 <template>
   <div class="post-code">
     <section>
+      <p>{{ rand }}</p>
+      <EmitSample v-on:updateRand="onUpdateRand" />
+    </section>
+    <section>
       <div>
         <h2>ポイント合計: {{ totalPoints }}</h2>
       </div>
@@ -16,10 +20,10 @@
         />
       </div>
     </section>
-    <section>
+    <!-- <section>
       <h1>Vue{{ version }}.xの学習</h1>
       <EmitSample v-on:update="updateVersion" />
-    </section>
+    </section> -->
     <section>
       <ul>
         <PropsSample
@@ -77,6 +81,11 @@ memberListInit.set(4, {
 });
 
 const memberList = ref(memberListInit);
+
+const rand = ref(Math.round(Math.random() * 10));
+const onUpdateRand = (): void => {
+  rand.value = Math.round(Math.random() * 10);
+};
 
 const totalPoints = computed((): number => {
   let total = 0;
