@@ -1,5 +1,8 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <p>{{ text }}</p>
 </template>
+<script setup lang="ts">
+import { ref } from "vue";
+
+const text = "サンプルテキスト";
+</script>
