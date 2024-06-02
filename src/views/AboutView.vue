@@ -1,10 +1,14 @@
 <template>
   <div class="post-code">
     <section>
-      <PropsSample
-        title="defineProps"
-        description="親コンポーネントから子コンポーネントへデータを受け渡す"
-      />
+      <ul>
+        <PropsSample
+          v-for="language in languageList"
+          :key="language.id"
+          :id="language.id"
+          :name="language.name"
+        />
+      </ul>
     </section>
     <input maxlength="7" type="text" v-model="postCode" />
     <p>郵便番号：{{ hyphenCode }}</p>
@@ -16,15 +20,19 @@
 import { ref, computed } from "vue";
 import PropsSample from "@/components/PropsSample.vue";
 
-/* ①データを返す */
 const postCode = ref("");
+const languageList = [
+  { id: 1, name: "PHP" },
+  { id: 2, name: "Java" },
+  { id: 3, name: "HTML" },
+  { id: 4, name: "CSS" },
+  { id: 5, name: "TypeScript" },
+];
 
-/* ②算出プロパティを定義する */
 const hyphenCode = computed((): string => {
   return postCode.value.slice(0, 3) + "-" + postCode.value.slice(3, 7);
 });
 
-/* ③各メソッドを定義する */
 const displayDate = (): any => {
   return new Date();
 };
